@@ -1,0 +1,27 @@
+Dijkstra Algorithm pseudo code and complexity 
+
+// space complexity -> O(m)
+// time complexity ==> O(m log n)
+
+- crate a distance array "d"
+- initialize all values of "d" to infinity
+
+- d[src] = 0
+
+- create a visited array and mark all the all the nodes ass unvisited
+- take an empty reverse priority_queue "pq"
+- pq.push({0,src})
+
+
+while the priority_queue is not empty:
+    - head_distance, head = pq.front()
+    - pq.pop()
+    if visited[head] == 1: ignore
+    - visited[head] = 1
+
+    - for all adj_node of head:
+        - if d[head]+ c(head,adj_node) < d[adj_node]:
+            - d[adj_node] = d[head]+c(head, adj_node)
+            -pq.push({d[adj_node], adj_node})
+
+- output array "d"
