@@ -1,0 +1,19 @@
+Floyd Warshall Algorithm pseudo code.
+
+Input -> A weighted graph as an adjacency matrix
+Output -> All pair shortest distance
+
+Time Complexity -> O(V^3)
+space Complexity -> O(V^2)
+
+- create s distance matrix "d" where d[i][j] = x and where there is a direct edge from node "i" to node "j" and the cost is "x"
+
+- for all node "i" d[i][i] = 0
+- for all node "i" & "j" where there isn't any direct edge from i -> j, d[i][j] = infinity
+
+- for all node "k"
+    - for all node "u"
+        - for all node "v"
+            - d[u][v] = min(d[u][v], d[u][k]+d[k][v])
+
+- Output all pair shortest distance "d" array
